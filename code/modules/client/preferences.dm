@@ -2875,11 +2875,12 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							for(var/i=1, i<=max_save_slots, i++)
 								var/name
 								S.cd = "/character[i]"
-								S["nickname"] >> name
-								if(!name)
+								var/nickname = S["nickname"]
+								var/realname = S["real_name"]
+								if(!realname)
 									name = "[i] - \[EMPTY SLOT\]"
 								else
-									name = "[i] - [name]"
+									name = "[i] - [nickname ? nickname : realname]"
 								if(loaded_slot == i)
 									choices_default = name
 								choices[name] = i
