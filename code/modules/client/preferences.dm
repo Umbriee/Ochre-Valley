@@ -201,10 +201,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/list/gear_list = list()	// Assoc list: item_name = list("color"=..., "custom_name"=..., "custom_desc"=...)
 
-	///Caustic edit
-	var/loadout_4_hex
-	var/loadout_5_hex
-	///Caustic edit end
 	var/flavortext
 	var/flavortext_cached
 
@@ -2282,27 +2278,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					vampire_eyes = null
 				if("vampire_skin_clear")
 					vampire_skin = null
-
-				///Caustic edit
-				if("loadout4hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Four Colour") as null|anything in COLOR_MAP
-					if (choice && COLOR_MAP[choice])
-						loadout_4_hex = COLOR_MAP[choice]
-						if (loadout4)
-							to_chat(user, "The colour for your [loadout4::name] has been set to <b>[choice]</b>.")
-					else
-						loadout_4_hex = null
-						to_chat(user, "The colour for your <b>fourth</b> loadout item has been cleared.")
-				if("loadout5hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Five Colour") as null|anything in COLOR_MAP
-					if (choice && COLOR_MAP[choice])
-						loadout_5_hex = COLOR_MAP[choice]
-						if (loadout5)
-							to_chat(user, "The colour for your [loadout5::name] has been set to <b>[choice]</b>.")
-					else
-						loadout_5_hex = null
-						to_chat(user, "The colour for your <b>fifth</b> loadout item has been cleared.")
-				///Caustic edit end
 
 				if("species")
 					var/list/species = list()
